@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockVision - Modern Market Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>StockVision</h1>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-icon"></div>
+                <input type="text" class="search-input" placeholder="Search companies..." id="search-input">
+            </div>
+            
+            <div class="company-section">
+                <h3>Indian Market Leaders</h3>
+                <ul class="company-list" id="company-list">
+                    <!-- Companies will be loaded here -->
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="header">
+                <h2 class="chart-title" id="chart-title">Select a company to view data</h2>
+                <div class="live-indicator" style="display: none;" id="live-indicator">
+                    <div class="live-dot"></div>
+                    Live Data
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="chart-container">
+                    <div class="empty-state" id="empty-state">
+                        <div class="empty-icon">📊</div>
+                        <div class="empty-title">Welcome to StockVision</div>
+                        <div class="empty-subtitle">Select a company from the sidebar to view its stock data</div>
+                    </div>
+                    <div class="loading" id="loading-state" style="display: none;">
+                        <div class="loading-spinner"></div>
+                    </div>
+                    <div class="chart-wrapper" id="chart-wrapper" style="display: none;">
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat-card high">
+                        <div class="stat-label">Daily High</div>
+                        <div class="stat-value" id="high-price">-</div>
+                    </div>
+                    <div class="stat-card low">
+                        <div class="stat-label">Daily Low</div>
+                        <div class="stat-value" id="low-price">-</div>
+                    </div>
+                    <div class="stat-card volume">
+                        <div class="stat-label">Volume</div>
+                        <div class="stat-value" id="volume">-</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
